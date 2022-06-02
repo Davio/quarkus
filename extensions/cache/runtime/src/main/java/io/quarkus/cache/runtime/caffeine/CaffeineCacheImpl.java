@@ -51,6 +51,9 @@ public class CaffeineCacheImpl extends AbstractCache implements CaffeineCache {
         if (cacheInfo.expireAfterAccess != null) {
             builder.expireAfterAccess(cacheInfo.expireAfterAccess);
         }
+        if (cacheInfo.refreshAfterWrite != null) {
+            builder.refreshAfterWrite(cacheInfo.refreshAfterWrite);
+        }
         if (recordStats) {
             LOGGER.tracef("Recording Caffeine stats for cache [%s]", cacheInfo.name);
             statsCounter = new ConcurrentStatsCounter();
